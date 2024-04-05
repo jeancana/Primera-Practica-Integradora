@@ -1,0 +1,42 @@
+{{!-- ESTA PLANTILLA DE HANDLEBARS NOS VA A SERVIR DE CLIENTE PARA HACER FUNCIONAR EL SOCKET.IO (WEBSOCKET) --}}
+{{!-- Aca estamos Usando el protocolo websocket del lado del Cliente --}}
+<div>
+
+    <br>
+    <h2> // CHAT CON SOCKECT.IO  - Practica de Integracion Backend-Coder // </h2>
+    <br>
+
+    <h3> Bienvenido el Chat</h3>
+
+    {{!-- Campo de formulario con id clientMessage / para el ingreso de Datos por el CLIENTE --}}
+    {{!-- 1) Cuadro Input donde el Usuario podra escribir el mensaje --}}
+    <input type="text" name="message" id="message" placeholder="Mensaje" style="width: 260px;">
+
+    {{!-- Al hacer click en el botón, llamamos a la función sendMessage() --}}
+    {{!-- 2) boton con el cual el usuario envia el mensaje --}}
+    <button onClick="sendMessage()">Enviar</button>
+
+    {{!-- Asignando un id="received_messages" para poder manipular con JS y volverlo dimanico --}}
+    {{!-- 3) Panel donde todos los usuarios conectados al chat podran ver los mensajes en tiempo real --}}
+    <p id="received_messages"> </p>
+
+
+</div>
+
+{{!-- ****** CARGANDO ARCHIVOS REMOTOS ******* --}}
+{{!-- Usando una CDN para trabajar con las librerias de Sweealert2 de bootstrap --}}
+<script src="//cdn.jsdelivr.net/npm/sweetalert2@11.10.1/dist/sweetalert2.all.min.js"></script> {{!-- Archivo Remoto --}}
+
+
+{{!-- ****** CARGANDO ARCHIVOS LOCALES ******* --}}
+
+{{!-- Socket.io del lado del CLIENTE --}}
+{{!--Habilitando la RUTA GLOBAL de la biblioteca(Previamente instalada) de socket.io para que nos permita conectarnos
+del lado del CLIENTE --}}
+<script src="/socket.io/socket.io.js"></script> {{!-- Archivo Local --}}
+
+
+<!-- HACIENDO USO DE LOS SERVICIOS ESTATICOS desde la carpeta "public" -->
+<script src="/static/js/chat.js"></script> {{!-- Archivo Local --}}
+<!-- Dentro de la Carpeta Public - Creamos una carpeta JS y dentro de ella un Archivo llamado "chat.js" -->
+<!-- Colocamos el código creado para EL CLIENTE de socket.io en un archivo separado, para más ORDEN -->
